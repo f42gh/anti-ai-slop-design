@@ -1,0 +1,4 @@
+interface:
+  display_name: "Anti-AI Slop Design"
+  short_description: "題材固有の根拠から、凡庸でないUIを設計・改善する"
+  default_prompt: "Use $anti-ai-slop-design to design or de-slop this interface while preserving its product and project contracts."
