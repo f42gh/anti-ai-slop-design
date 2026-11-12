@@ -28,6 +28,7 @@ Add tablet, breakpoint-adjacent, short-height, landscape, zoom, localization, da
 ## Design-system fidelity
 
 - An existing `DESIGN.md` remains unchanged unless explicitly in scope.
+- Any value changed because the contract would break the accessibility floor is listed with its ratio and a suggested amendment.
 - Fonts, colors, spacing, borders, shape, motion, and copy follow the authoritative system.
 - No parallel token system or one-off palette has appeared.
 - Every new surface, line, radius, effect, and animation has a reason.
@@ -38,9 +39,9 @@ Add tablet, breakpoint-adjacent, short-height, landscape, zoom, localization, da
 - Semantic structure and heading order match the reading route.
 - Controls have accessible names, states, and relationships.
 - Keyboard order matches visual order; no traps exist.
-- Focus-visible feedback is immediate, unclipped, and distinct.
-- Text and controls meet the applicable contrast target in every state.
-- Touch targets meet the project or platform minimum; prefer about 44×44 CSS pixels when space allows.
+- Focus-visible feedback is immediate, unclipped, distinct, and at least 3:1 against adjacent colors; nothing removes it with `outline: none`.
+- Computed contrast meets the target for every color pair actually used, in every state and theme: text 4.5:1, large text (≥24px, or ≥18.66px bold) 3:1, component boundaries and meaningful non-text marks 3:1. Disabled controls, logos, and pure decoration are exempt. List the pairs and ratios in the completion report; do not round.
+- Touch targets are at least 24×24 CSS pixels (WCAG 2.5.8) or meet a larger project minimum; prefer about 44×44 when space allows, enlarging the hit area with padding.
 - Content survives zoom and text resizing without loss or overlap.
 - Reduced-motion users retain state feedback and hierarchy.
 - Color is not the only carrier of meaning.

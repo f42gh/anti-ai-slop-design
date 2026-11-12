@@ -11,15 +11,17 @@ Create interfaces that look deliberately made for their subject. Replace unexami
 
 Apply constraints in this order:
 
-1. The user's explicit request and supplied references.
-2. A project-root `DESIGN.md` or `design.md`, read in full.
-3. Repository instructions, existing design tokens, brand assets, and component contracts.
-4. Functional correctness, semantics, data integrity, accessibility, and input modality.
+1. **Floor:** functional correctness, data integrity, content truth, semantics, input modality, and the accessibility minimums below. Only the user can waive part of the floor, explicitly and for the current task; report every waived check.
+2. The user's explicit request and supplied references.
+3. The design contract, read in full: a project-root `DESIGN.md` / `design.md` first, then a global design file the user's instructions load (for example `~/dev/design/DESIGN.md` via `CLAUDE.md`). Where both exist, the project file wins on conflicts and the global file fills the gaps.
+4. Repository instructions, existing design tokens, brand assets, and component contracts.
 5. Product, audience, platform, content, and viewport needs.
 6. The selected art direction.
 7. Anti-slop heuristics.
 
-Never let a lower-ranked aesthetic preference override a higher-ranked contract. Do not edit or regenerate an existing `DESIGN.md` unless the user explicitly asks. If no design contract exists, form a provisional internal brief; persist one only when requested. Use [DESIGN.template.md](assets/DESIGN.template.md) when a project-specific contract is part of the task.
+Accessibility minimums (WCAG 2.2 AA unless the project sets a higher target): text 4.5:1, large text (≥24px, or ≥18.66px bold) 3:1, component boundaries, meaningful icons and focus indicators 3:1 against adjacent colors, visible `:focus-visible`, full keyboard operation, targets ≥24×24 CSS px (prefer 44×44), meaning never carried by color alone, content intact at 200% zoom, reduced motion keeps state feedback. Compute ratios; do not round (4.49 fails).
+
+Never let a lower-ranked preference override a higher-ranked one. When a design-contract value would break the floor (for example a muted gray that fails 4.5:1 for text), keep the contract's intent and format, use the nearest compliant value or a compliant role from the same contract, and report the deviation with a suggested amendment. Do not edit or regenerate an existing `DESIGN.md` unless the user explicitly asks. If no design contract exists, form a provisional internal brief; persist one only when requested. Use [DESIGN.template.md](assets/DESIGN.template.md) when a project-specific contract is part of the task.
 
 ## Choose the task mode
 
